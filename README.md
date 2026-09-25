@@ -6,7 +6,6 @@ A full-stack Human Resource Management System (HRMS) built with **Next.js 16**, 
 
 ## 📸 Screenshots
 
-
 ### Authentication (Login + OTP Verification)
 | Login | OTP Verification |
 |---|---|
@@ -77,7 +76,7 @@ A full-stack Human Resource Management System (HRMS) built with **Next.js 16**, 
 
 ---
 
-### 🤖 Grounded HR AI (Bonus Feature)
+### 🤖 Grounded AI HR Copilot (Bonus Feature)
 - Integrated OpenRouter API (`nvidia/nemotron-3-ultra-550b-a55b:free`) acting as an internal assistant for HR managers.
 - Bypasses AI hallucinations by querying `Employee`, `Attendance`, and `Leave` tables concurrently using `Promise.all` via Prisma ORM.
 - Grounded in live database context to accurately answer operational questions (e.g., who is present or on leave today).
@@ -282,8 +281,6 @@ model Leave {
 
 ## 🤖 AI Usage Disclosure
 
-## 🤖 AI Tools & Assistance Disclosure
-
 In compliance with the assignment guidelines, the following is a breakdown of how AI tools were utilized during the development of the Zeerostock HRMS application:
 
 ### 1. Scope of AI Usage
@@ -298,14 +295,9 @@ All core application logic, architectural decisions, and code implementation wer
 - **Authentication & Security:** Configured NextAuth.js JWT session handling, role-based access control (HR vs. Employee guards), and password hashing algorithms.
 - **Backend & Business Logic:** Implemented Next.js Server Actions and Route Handlers for CRUD operations, attendance tracking, leave requests, and parallel database fetching (`Promise.all`).
 - **UI/UX Development:** Built all custom dashboard layouts, modals, tables, and AI Copilot sidebars using Tailwind CSS.
-
-
 ---
 
 ## 📝 Approach, Assumptions & Challenges
-
-_## 📐 Approach, Assumptions & Challenges
-
 ### 1. Technical Approach
 * **Monolithic Next.js 16 Architecture:** Selected Next.js App Router to unify the frontend UI, API route handlers, and server logic into a single performant codebase, reducing deployment complexity.
 * **Serverless Relational Database:** Utilized Neon PostgreSQL with Prisma ORM to maintain strict relational constraints between users, employees, attendance logs, and leave requests while benefiting from serverless scaling.
@@ -334,32 +326,13 @@ _## 📐 Approach, Assumptions & Challenges
 
 #### Challenge 3: HTTP Authorization & Header Truncation with OpenRouter
 * **Problem:** Standard OpenAI SDK wrappers encountered header validation issues when passing custom OpenRouter metadata (`HTTP-Referer`, `X-Title`).
-* **Solution:** Replaced the SDK wrapper in the AI API handler with a direct, clean native `fetch` request using customized headers and standard JSON payload bodies. 
-## 🚀 Future Improvements (With More Time)
+* **Solution:** Replaced the SDK wrapper in the AI API handler with a direct, clean native `fetch` request using customized headers and standard JSON payload bodies.
 
-If given additional time to extend and scale the application, the following features and technical enhancements would be prioritized:
 
-### 1. Advanced HRMS Features & Workflows
-- **Automated Payroll Processing:** Calculate monthly salaries based on integrated attendance logs, approved leaves, tax deductions, and custom bonuses.
-- **Document Management & Onboarding:** Allow employees to upload tax documents, IDs, and certificates directly during onboarding via AWS S3 / UploadThing.
-- **Automated Email & Push Notifications:** Integrate Resend or Nodemailer to send automated email alerts when leave requests are submitted, approved, or rejected.
-
-### 2. AI Copilot Enhancements
-- **Agentic Function Calling / Tool Use:** Upgrade the AI Copilot from static prompt-injected context to explicit function calling, enabling it to perform actions directly (e.g., *"Approve John's leave request for tomorrow"* or *"Export attendance logs for HR"*).
-- **Vector Search (pgvector):** Shift from full SQL database context injections to embedding-based semantic vector search for querying company policies and employee handbooks.
-
-### 3. Analytics, Reporting & Exporting
-- **Report Generation:** Add PDF and CSV export capabilities for monthly attendance sheets, payroll slips, and leave summaries.
-- **Visual Analytics:** Integrate Chart.js or Recharts to visualize attendance trends, peak absenteeism days, and department-wise headcount distribution on the HR Dashboard.
-
-### 4. Technical & Infrastructure Optimizations
-- **Comprehensive Testing Suite:** Implement end-to-end (E2E) testing with Playwright / Cypress and automated unit tests using Jest / React Testing Library.
-- **Production Deployment & CI/CD:** Deploy the application to Vercel with automated GitHub Actions pipelines for continuous integration and automated database migrations.
-- **Mobile Application:** Build a companion React Native mobile app for seamless biometric/GPS-based employee check-ins.
 
 ---
 
 ## 🔗 Links
-Live Demo:hrms-zeerostock-bzve.vercel.app
 
+- **Live Demo:** [hrms-zeerostock-bzve.vercel.app](https://hrms-zeerostock-bzve.vercel.app)
 
